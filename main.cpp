@@ -10,7 +10,7 @@ int main()
 
     quaternion a = {1, 2, 3, 4};
     a[X] = 9;
-    std::cout << (a + a)[Y] << std::endl;
+    std::cout << (a + a)[X] << std::endl;
 
     std::cout << timer.passed_time(MICROSECOND) << std::endl;
 }

@@ -1,6 +1,6 @@
 #include <iostream>
+#include "src/quaternion.hpp"
 
 int main()
 {
-    std::cout << "Hello World!" << std::endl;
 }

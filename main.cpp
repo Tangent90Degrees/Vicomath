@@ -4,8 +4,7 @@
 
 using namespace math;
 
-int main()
-{
+int main() {
     timer timer;
 
     quaternion a = {1, 2, 3, 4};

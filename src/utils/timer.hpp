@@ -2,8 +2,7 @@
 
 #include <chrono>
 
-enum time_unit
-{
+enum time_unit {
     NANOSECOND,
     MICROSECOND,
     MILLISECOND,
@@ -11,8 +10,7 @@ enum time_unit
     MINUTE
 };
 
-class timer
-{
+class timer {
 public:
     typedef std::chrono::high_resolution_clock clock;
     typedef clock::time_point time_point;
@@ -20,6 +18,7 @@ public:
     typedef time_unit unit;
 
     timer();
+
     size_t passed_time(unit unit);
 
 private:

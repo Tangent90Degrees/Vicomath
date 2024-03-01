@@ -2,16 +2,12 @@
 
 #include "utils/core.hpp"
 
-namespace math
-{
-    union angle
-    {
+namespace math {
+    union angle {
     private:
-        union degree_type
-        {
+        union degree_type {
             operator num() const;
             degree_type &operator=(num degree);
-
         private:
             num radius;
         };

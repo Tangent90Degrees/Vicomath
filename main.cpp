@@ -9,8 +9,8 @@ int main()
     timer timer;
 
     quaternion a = {1, 2, 3, 4};
-    a[X] = 9;
-    std::cout << (a + a)[X] << std::endl;
+    quaternion b = {5, 2, 1, 7};
+    quaternion c = a * b;
 
-    std::cout << timer.passed_time(MICROSECOND) << std::endl;
+    std::cout << "Time passed " << timer.passed_time(MICROSECOND) << " ms." << std::endl;
 }

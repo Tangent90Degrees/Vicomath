@@ -11,6 +11,8 @@ namespace math
         quaternion();
         quaternion(const num4 &entries);
         quaternion(num w, num x, num y, num z);
+
+        friend quaternion operator*(const quaternion &left, const quaternion &right);
     };
 
 } // namespace math

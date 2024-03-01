@@ -11,6 +11,7 @@ namespace math {
         /// @brief The default constructor.
         vector();
 
+        /// @brief Constructs a vector by specified entries.
         vector(const num4 &entries);
 
         vector(num x, num y, num z);

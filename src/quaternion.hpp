@@ -5,7 +5,7 @@
 #include "linear_base.hpp"
 
 namespace math {
-    struct quaternion : public linear_base<quaternion> {
+    struct quaternion : public linear_base<quaternion, 4> {
 
         quaternion();
 

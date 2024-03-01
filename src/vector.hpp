@@ -6,7 +6,7 @@
 namespace math {
 
     /// @brief The vector type.
-    struct vector : public linear_base<vector> {
+    struct vector : public linear_base<vector, 4> {
 
         /// @brief The default constructor.
         vector();
@@ -14,6 +14,7 @@ namespace math {
         /// @brief Constructs a vector by specified entries.
         vector(const num4 &entries);
 
+        /// @brief Constructs a vector by x, y, and z entries.
         vector(num x, num y, num z);
     };
 

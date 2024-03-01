@@ -10,7 +10,7 @@ namespace math {
     }
 
     vector::vector(num x, num y, num z)
-            : linear_base(0, x, y, z) {
+            : linear_base(static_cast<num>(0), x, y, z) {
     }
 
 } // namespace math

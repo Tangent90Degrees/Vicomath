@@ -15,14 +15,17 @@ namespace math {
 
     /// @brief The base class for objects with linear operations.
     /// @tparam SELF The type of derived class.
-    template<typename SELF>
+    template<typename SELF, size_t DIM> requires power_of_2<DIM>
     class linear_base {
+
+        typedef num num_vec __attribute__((ext_vector_type(DIM)));
+
         /// @brief Data members of this linear object.
         union {
             /// @brief Access the data by a compiler builtin vector for faster operations.
-            num4 entries;
+            num_vec entries;
             /// @brief Access the data by an array for faster entry accessing.
-            std::array<num, 4> array;
+            std::array<num, DIM> array;
         };
 
     public:
@@ -32,68 +35,56 @@ namespace math {
 
         /// @brief Constructs a linear object using a compiler builtin vector.
         /// @param entries The compiler builtin vector.
-        inline linear_base(const num4 &entries) : entries(entries) {};
+        inline linear_base(const num_vec &entries) : entries(entries) {};
 
         /// @brief Constructs a linear object using entries.
-        inline linear_base(num w, num x, num y, num z) : array{w, x, y, z} {};
+        template<typename... ARGS>
+        inline linear_base(ARGS... args) : array{args...} {};
 
-        /// @brief Accesses the entry at the specified position.
-        /// @param off The specified index.
-        /// @return The read-only value of the entry.
+        /// @brief Accesses an entry at a specified position.
+        /// @param off Position of element to access.
+        /// @return The value of the entry.
         inline constexpr num operator[](index off) const noexcept { return array[off]; }
 
-        /// @brief Accesses the entry at the specified position.
-        /// @param off The specified index.
+        /// @brief Accesses an entry at a specified position.
+        /// @param off Position of element to access.
         /// @return The reference of the entry.
         inline constexpr num &operator[](index off) noexcept { return array[off]; }
 
+        /// @brief Designates the beginning of the constant controlled sequence.
         [[nodiscard]] inline constexpr const num *begin() const noexcept { return array.begin(); }
 
+        /// @brief Designates the beginning of the controlled sequence.
         inline constexpr num *begin() noexcept { return array.begin(); }
 
+        /// @brief Designates the end of the controlled sequence.
         [[nodiscard]] inline constexpr const num *end() const noexcept { return array.end(); }
 
+        /// @brief Designates the end of the controlled sequence.
         inline constexpr num *end() noexcept { return array.end(); }
 
-        template<typename _SELF>
-        friend _SELF operator+(const linear_base<_SELF> &left, const linear_base<_SELF> &right);
+        /// @brief Adds two linear objects by entry-wise addition.
+        friend SELF operator+(const linear_base<SELF, DIM> &left, const linear_base<SELF, DIM> &right) {
+            return left.entries + right.entries;
+        }
 
-        template<typename _SELF>
-        friend _SELF operator-(const linear_base<_SELF> &left, const linear_base<_SELF> &right);
+        /// @brief Subtracts two linear objects by entry-wise subtraction.
+        friend SELF operator-(const linear_base<SELF, DIM> &left, const linear_base<SELF, DIM> &right) {
+            return left.entries - right.entries;
+        }
 
-        template<typename _SELF>
-        friend _SELF operator*(const linear_base<_SELF> &left, num right);
+        /// @brief Scalar multiplication.
+        friend SELF operator*(const linear_base<SELF, DIM> &left, num right) {
+            return left.entries * right;
+        }
 
-        template<typename _SELF>
-        friend _SELF operator*(num left, const linear_base<_SELF> &right);
+        friend SELF operator*(num left, const linear_base<SELF, DIM> &right) {
+            return left * right.entries;
+        }
 
-        template<typename _SELF>
-        friend _SELF operator/(const linear_base<_SELF> &left, num right);
+        friend SELF operator/(const linear_base<SELF, DIM> &left, num right) {
+            return left.entries * (1 / right);
+        }
     };
-
-    template<typename SELF>
-    inline SELF operator+(const linear_base<SELF> &left, const linear_base<SELF> &right) {
-        return left.entries + right.entries;
-    }
-
-    template<typename SELF>
-    inline SELF operator-(const linear_base<SELF> &left, const linear_base<SELF> &right) {
-        return left.entries - right.entries;
-    }
-
-    template<typename SELF>
-    inline SELF operator*(const linear_base<SELF> &left, num right) {
-        return left.entries * right;
-    }
-
-    template<typename SELF>
-    inline SELF operator*(num left, const linear_base<SELF> &right) {
-        return left * right.entries;
-    }
-
-    template<typename SELF>
-    inline SELF operator/(const linear_base<SELF> &left, num right) {
-        return left.entries * (1 / right);
-    }
 
 } // namespace math

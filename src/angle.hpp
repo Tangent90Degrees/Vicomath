@@ -3,6 +3,7 @@
 #include "utils/core.hpp"
 
 namespace math {
+
     union angle {
     private:
         union degree_type {

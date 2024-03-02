@@ -2,10 +2,9 @@
 
 namespace math {
 
-    quaternion::quaternion() {
-    }
+    quaternion::quaternion() = default;
 
-    quaternion::quaternion(const num4 &entries)
+    quaternion::quaternion(const linear_base::num_vec &entries)
             : linear_base(entries) {
     }
 
@@ -13,7 +12,7 @@ namespace math {
             : linear_base(w, x, y, z) {
     }
 
-    quaternion operator*(const quaternion &left, const quaternion &right) {
+    INLINE quaternion operator*(const quaternion &left, const quaternion &right) {
         return {
                 left[W] * right[W] - left[X] * right[X] - left[Y] * right[Y] - left[Z] * right[Z],
                 left[W] * right[X] + left[X] * right[W] + left[Y] * right[Z] - left[Z] * right[Z],

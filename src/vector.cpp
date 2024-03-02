@@ -2,10 +2,9 @@
 
 namespace math {
 
-    vector::vector() {
-    }
+    vector::vector() = default;
 
-    vector::vector(const num4 &entries)
+    vector::vector(const num_vec &entries)
             : linear_base(entries) {
     }
 

@@ -2,18 +2,18 @@
 
 #include "utils/core.hpp"
 #include "angle.hpp"
-#include "linear_base.hpp"
+#include "linear/linear_base.hpp"
 
 namespace math {
     struct quaternion : public linear_base<quaternion, 4> {
 
         quaternion();
 
-        quaternion(const num4 &entries);
+        quaternion(const linear_base::num_vec &entries);
 
         quaternion(num w, num x, num y, num z);
 
-        friend quaternion operator*(const quaternion &left, const quaternion &right);
+        friend INLINE quaternion operator*(const quaternion &left, const quaternion &right);
     };
 
 } // namespace math

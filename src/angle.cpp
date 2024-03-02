@@ -1,6 +1,7 @@
 #include "angle.hpp"
 
 namespace math {
+
     angle::degree_type::operator num() const {
         return radius * 180 / PI;
     }

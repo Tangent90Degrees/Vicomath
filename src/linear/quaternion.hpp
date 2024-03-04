@@ -1,8 +1,8 @@
 #pragma once
 
-#include "utils/core.hpp"
-#include "angle.hpp"
-#include "linear/linear_base.hpp"
+#include "../utils/core.hpp"
+#include "../angle.hpp"
+#include "linear_base.hpp"
 
 namespace math {
     struct quaternion : public linear_base<quaternion, 4> {

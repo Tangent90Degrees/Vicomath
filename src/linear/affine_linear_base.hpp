@@ -22,28 +22,28 @@ namespace math {
         /// @param entries The compiler builtin vector.
         inline affine_linear_base(const num_vec &entries) : tuple(entries) {};
 
-        /// @brief Constructs a point using entries.
+        /// @brief Constructs a point using vec.
         template<typename... ARGS>
         inline affine_linear_base(ARGS... args) : tuple{args...} {};
 
         /// @brief Adds two linear objects by entry-wise addition.
         friend AFFINE operator+(const affine_linear_base &left, const linear_base &right) {
-            return left.entries + data(right);
+            return left.vec + right.vec_data();
         }
 
         /// @brief Subtracts two linear objects by entry-wise subtraction.
         friend AFFINE operator-(const affine_linear_base &left, const linear_base &right) {
-            return left.entries - data(right);
+            return left.vec - right.vec_data();
         }
 
         /// @brief Adds two linear objects by entry-wise addition.
         friend AFFINE operator+(const linear_base &left, const affine_linear_base &right) {
-            return data(left) + right.entries;
+            return left.vec_data() + right.vec;
         }
 
         /// @brief Subtracts two linear objects by entry-wise subtraction.
         friend VEC operator-(const affine_linear_base &left, const affine_linear_base &right) {
-            return left.entries - right.entries;
+            return left.vec - right.vec;
         }
     };
 

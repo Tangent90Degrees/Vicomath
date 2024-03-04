@@ -1,6 +1,6 @@
 CC := clang
 CXX := clang++
-CXXFLAGS := -std=c++2b -Wall
+CXXFLAGS := -std=c++2b -Wall -fenable-matrix
 
 SRCS := $(wildcard src/*.cpp) $(wildcard src/*/*.cpp) $(wildcard src/*/*/*.cpp)
 OBJS := $(SRCS:.cpp=.o)

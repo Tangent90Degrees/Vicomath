@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="CMakeRunConfigurationManager">
+    <generated>
+      <config projectName="Vicomath" targetName="all" />
+    </generated>
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c0919757-e280-4149-a250-39f3f19ce631" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/image.ppm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/geometry/ray.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/geometry/ray.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/geometry/vector.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/graphic/color.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/graphic/color.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/graphic/image.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/graphic/image.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/linear/dual_linear_base.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/linear/matrix_base.hpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/linear/rect_tuple_base.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scene/camera.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scene/camera.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/linear/affine_linear_base.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/linear/affine_linear_base.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/linear/linear_base.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/linear/linear_base.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/linear/tuple_base.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/linear/tuple_base.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/point.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometry/point.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/point.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometry/point.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/quaternion.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/linear/quaternion.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/quaternion.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/linear/quaternion.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/core.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/core.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vector.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vector.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometry/vector.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vicomath.h" beforeDir="false" afterPath="$PROJECT_DIR$/vicomath.h" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MakefileLocalSettings">
+    <option name="availableProjects">
+      <map>
+        <entry>
+          <key>
+            <ExternalProjectPojo>
+              <option name="name" value="Vicomath" />
+              <option name="path" value="$PROJECT_DIR$" />
+            </ExternalProjectPojo>
+          </key>
+          <value>
+            <list>
+              <ExternalProjectPojo>
+                <option name="name" value="Vicomath" />
+                <option name="path" value="$PROJECT_DIR$" />
+              </ExternalProjectPojo>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="projectSyncType">
+      <map>
+        <entry key="$PROJECT_DIR$" value="RE_IMPORT" />
+      </map>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectApplicationVersion">
+    <option name="ide" value="CLion" />
+    <option name="majorVersion" value="2023" />
+    <option name="minorVersion" value="3.4" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2dCiedidyAcLPV3wS1RctpNQT2Y" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Native Application.all.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration name="all" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Vicomath" TARGET_NAME="all" CONFIG_NAME="all" version="1" RUN_PATH="all">
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c0919757-e280-4149-a250-39f3f19ce631" name="Changes" comment="" />
+      <created>1709518557428</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1709518557428</updated>
+      <workItem from="1709518558495" duration="1861000" />
+      <workItem from="1709533457065" duration="163000" />
+      <workItem from="1709533663823" duration="250000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

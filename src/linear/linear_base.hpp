@@ -28,33 +28,33 @@ namespace math {
         /// @param entries The compiler builtin vector.
         inline linear_base(const num_vec &entries) : tuple(entries) {};
 
-        /// @brief Constructs a linear object using entries.
+        /// @brief Constructs a linear object using vec.
         template<typename... ARGS>
         inline linear_base(ARGS... args) : tuple{args...} {};
 
         /// @brief Adds two linear objects by entry-wise addition.
         friend inline SELF operator+(const linear_base &left, const linear_base &right) {
-            return left.entries + right.entries;
+            return left.vec + right.vec;
         }
 
         /// @brief Subtracts two linear objects by entry-wise subtraction.
         friend inline SELF operator-(const linear_base &left, const linear_base &right) {
-            return left.entries - right.entries;
+            return left.vec - right.vec;
         }
 
         /// @brief Scalar multiplication.
         friend inline SELF operator*(const linear_base &left, num right) {
-            return left.entries * right;
+            return left.vec * right;
         }
 
         /// @brief Scalar multiplication.
         friend inline SELF operator*(num left, const linear_base &right) {
-            return left * right.entries;
+            return left * right.vec;
         }
 
         /// @brief Scalar division.
         friend inline SELF operator/(const linear_base &left, num right) {
-            return left.entries * (1 / right);
+            return left.vec * (1 / right);
         }
     };
 

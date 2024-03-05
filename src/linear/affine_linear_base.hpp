@@ -22,7 +22,7 @@ namespace math {
         /// @param entries The compiler builtin vector.
         inline affine_linear_base(const num_vec &entries) : tuple(entries) {};
 
-        /// @brief Constructs a point using vec.
+        /// @brief Constructs a point using entries.
         template<typename... ARGS>
         inline affine_linear_base(ARGS... args) : tuple{args...} {};
 

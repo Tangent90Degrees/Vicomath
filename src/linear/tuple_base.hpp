@@ -23,6 +23,10 @@ namespace math {
         /// @param entries The compiler builtin vector.
         inline tuple_base(const num_vec &entries) : vec(entries) {};
 
+        /// @brief Constructs a tuple using a compiler builtin matrix.
+        /// @param entries The compiler builtin matrix.
+        inline tuple_base(const num_mat &entries) : mat(entries) {};
+
         /// @brief Constructs a tuple using vec.
         template<typename... ARGS>
         inline tuple_base(ARGS... args) : array{args...} {};

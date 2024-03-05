@@ -20,6 +20,7 @@ namespace math {
 
         typedef tuple_base<DIM> tuple;
         typedef tuple::num_vec num_vec;
+        typedef tuple::num_mat num_mat;
 
         /// @brief The default constructor.
         inline linear_base() = default;
@@ -27,6 +28,10 @@ namespace math {
         /// @brief Constructs a linear object using a compiler builtin vector.
         /// @param entries The compiler builtin vector.
         inline linear_base(const num_vec &entries) : tuple(entries) {};
+
+        /// @brief Constructs a linear object using a compiler builtin matrix.
+        /// @param entries The compiler builtin matrix.
+        inline linear_base(const num_mat &entries) : tuple(entries) {};
 
         /// @brief Constructs a linear object using vec.
         template<typename... ARGS>

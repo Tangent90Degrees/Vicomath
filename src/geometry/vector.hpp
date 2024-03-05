@@ -1,6 +1,5 @@
 #pragma once
 
-#include "../utils/core.hpp"
 #include "../linear/linear_base.hpp"
 
 namespace math {

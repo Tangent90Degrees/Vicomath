@@ -4,7 +4,7 @@ using namespace math;
 using namespace graphic;
 
 int main() {
-//    image image = {256, 256};
-//    image.render();
-//    image.save("image.ppm");
+    image image = {1920, 1080};
+    image.render();
+    image.save("image.ppm");
 }

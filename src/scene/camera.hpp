@@ -1,14 +1,24 @@
-//
-// Created by Victor Liu on 3/3/24.
-//
+#pragma once
 
-#ifndef VICOMATH_CAMERA_H
-#define VICOMATH_CAMERA_H
+#include <tuple>
+#include "../geometry/ray.hpp"
+#include "scene_object.hpp"
 
+class camera : public scene_object {
+public:
+    struct viewport_size {
+        math::num width;
+        math::num height;
+    };
 
-class camera {
+    camera(const math::point &position,
+           const math::quaternion &rotation,
+           math::num focal_length,
+           const viewport_size &viewport_size);
 
+    math::ray shoot_ray(math::num x, math::num y) const;
+
+private:
+    math::num focal_length;
+    viewport_size viewport_size;
 };
-
-
-#endif //VICOMATH_CAMERA_H

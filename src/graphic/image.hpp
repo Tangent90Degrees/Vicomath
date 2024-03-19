@@ -20,13 +20,14 @@ namespace graphic {
         INLINE const color &operator[](size_t row, size_t column) const noexcept;
         INLINE color &operator[](size_t row, size_t column) noexcept;
 
-        bool save(const std::string &file_name) const;
+        [[nodiscard]] bool save(const std::string &file_name) const;
 
         void render();
 
-    private:
         const size_t width;
         const size_t height;
+
+    private:
         color *pixels;
     };
 

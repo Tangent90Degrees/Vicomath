@@ -5,7 +5,7 @@
 
 namespace math {
 
-    struct point : affine_linear_base<point, vector, 4> {
+    struct point : public affine_linear_base<point, vector, 4> {
 
         typedef affine_linear_base::num_vec num_vec;
 

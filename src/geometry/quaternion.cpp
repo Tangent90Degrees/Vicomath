@@ -19,6 +19,13 @@ namespace math {
         };
     }
 
+    vector quaternion::operator()(const vector &v) const {
+        return (*this * v.vec_data() * conj(*this)).vec;
+    }
+
+    const quaternion quaternion::ONE = {1, 0, 0, 0};
+    const quaternion quaternion::ZERO = {0, 0, 0, 0};
+
     INLINE quaternion conj(const quaternion &q) {
         return {q[W], -q[X], -q[Y], -q[Z]};
     }

@@ -14,27 +14,10 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5883ca18-bba2-45a8-bf61-38a85b2cec0d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/geometry/coordinate.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/geometry/coordinate.hpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/graphic/renderer.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/graphic/renderer.hpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/scene/scene.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/scene/scene.hpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/scene/scene_object.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/scene/scene_object.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+    <list default="true" id="5883ca18-bba2-45a8-bf61-38a85b2cec0d" name="Changes" comment="Change .gitignore">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/image.ppm" beforeDir="false" afterPath="$PROJECT_DIR$/image.ppm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/geometry/point.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometry/point.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/geometry/point.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometry/point.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/geometry/quaternion.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometry/quaternion.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/geometry/quaternion.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometry/quaternion.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graphic/image.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphic/image.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scene/camera.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/scene/camera.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scene/camera.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/scene/camera.hpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/linear/tuple_base.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/linear/tuple_base.hpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,10 +118,30 @@
       <workItem from="1710207894543" duration="37000" />
       <workItem from="1710258521841" duration="39000" />
       <workItem from="1710387963562" duration="398000" />
+      <workItem from="1710844400620" duration="498000" />
+      <workItem from="1710845001609" duration="3000" />
+      <workItem from="1711011290502" duration="1119000" />
+      <workItem from="1711377016934" duration="97000" />
+      <workItem from="1711382401147" duration="66000" />
+      <workItem from="1711419704115" duration="49000" />
+      <workItem from="1711428020978" duration="6000" />
     </task>
+    <task id="LOCAL-00001" summary="Change .gitignore">
+      <option name="closed" value="true" />
+      <created>1710844553584</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1710844553584</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Change .gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="Change .gitignore" />
   </component>
 </project>

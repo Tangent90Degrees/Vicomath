@@ -1,6 +1,5 @@
 #pragma once
 
-#include <array>
 #include "../utils/core.hpp"
 
 namespace math {
@@ -50,16 +49,16 @@ namespace math {
         inline const num_mat &mat_data() const noexcept { return mat; }
 
         /// @brief Designates the beginning of the constant controlled sequence.
-        [[nodiscard]] inline constexpr const num *begin() const noexcept { return array.begin(); }
+        [[nodiscard]] inline constexpr const num *begin() const noexcept { return array; }
 
         /// @brief Designates the beginning of the controlled sequence.
-        inline constexpr num *begin() noexcept { return array.begin(); }
+        inline constexpr num *begin() noexcept { return array; }
 
         /// @brief Designates the end of the controlled sequence.
-        [[nodiscard]] inline constexpr const num *end() const noexcept { return array.end(); }
+        [[nodiscard]] inline constexpr const num *end() const noexcept { return array + N; }
 
         /// @brief Designates the end of the controlled sequence.
-        inline constexpr num *end() noexcept { return array.end(); }
+        inline constexpr num *end() noexcept { return array + N; }
 
     protected:
 
@@ -70,7 +69,7 @@ namespace math {
             /// @brief Access the data by a compiler builtin matrix for faster operations.
             num_mat mat;
             /// @brief Access the data by an array for faster entry accessing.
-            std::array<num, N> array;
+            num array[N];
         };
     };
 

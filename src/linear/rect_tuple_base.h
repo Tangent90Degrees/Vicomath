@@ -1,6 +1,5 @@
 #pragma once
 
-#include <array>
 #include "../utils/core.hpp"
 
 namespace math {
@@ -25,31 +24,34 @@ namespace math {
         template<typename... ARGS>
         inline rect_tuple_base(ARGS... args) : array{args...} {};
 
-        /// @brief Accesses an entry at a specified position.
-        /// @param row Position of element to access.
-        /// @return The value of the entry.
-        inline constexpr num operator[](size_t row, size_t column) const noexcept { return array[row][column]; }
+        /// @brief Destructs this 2D tuple.
+        inline virtual ~rect_tuple_base() = default;
 
         /// @brief Accesses an entry at a specified position.
-        /// @param row Position of element to access.
+        /// @param off Position of element to access.
+        /// @return The value of the entry.
+        inline constexpr auto operator[](size_t off) const noexcept -> const num (&)[N] { return array[off]; }
+
+        /// @brief Accesses an entry at a specified position.
+        /// @param off Position of element to access.
         /// @return The reference of the entry.
-        inline constexpr num &operator[](size_t row, size_t column) noexcept { return array[row][column]; }
+        inline constexpr auto operator[](size_t off) noexcept -> num (&)[N] { return array[off]; }
 
         /// @brief Accesses all mat data.
         /// @return The builtin matrix type of data.
-        inline const num_mat &mat_data() const noexcept { return mat; }
+        inline explicit operator num_mat() const noexcept { return mat; }
 
         /// @brief Designates the beginning of the constant controlled sequence.
-        [[nodiscard]] inline const std::array<num, N> *begin() const noexcept { return array.begin(); }
+        [[nodiscard]] inline auto begin() const noexcept -> const num (*)[N] { return array; }
 
         /// @brief Designates the beginning of the controlled sequence.
-        inline std::array<num, N> *begin() noexcept { return array.begin(); }
+        inline auto begin() noexcept -> num (*)[N] { return array; }
 
         /// @brief Designates the end of the controlled sequence.
-        [[nodiscard]] inline const std::array<num, N> *end() const noexcept { return array.end(); }
+        [[nodiscard]] inline auto end() const noexcept -> const num (*)[N] { return array + M; }
 
         /// @brief Designates the end of the controlled sequence.
-        inline std::array<num, N> *end() noexcept { return array.end(); }
+        inline auto end() noexcept -> num (*)[N] { return array + M; }
 
     protected:
 
@@ -58,7 +60,7 @@ namespace math {
             /// @brief Access the data by a compiler builtin matrix for faster operations.
             num_mat mat;
             /// @brief Access the data by an array for faster entry accessing.
-            std::array<std::array<num, N>, M> array;
+            num array[M][N];
         };
     };
 

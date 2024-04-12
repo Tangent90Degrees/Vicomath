@@ -1,14 +1,19 @@
 #pragma once
 
-#include "utils/core.hpp"
+#include "../utils/core.hpp"
 
-namespace math {
+namespace math
+{
 
-    union angle {
+    /// @brief Angles
+    union angle
+    {
     private:
-        union degree_type {
+        union degree_type
+        {
             operator num() const;
             degree_type &operator=(num degree);
+
         private:
             num radius;
         };

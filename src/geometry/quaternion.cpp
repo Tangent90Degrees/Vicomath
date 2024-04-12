@@ -20,7 +20,7 @@ namespace math {
     }
 
     vector quaternion::operator()(const vector &v) const {
-        return (*this * v.vec_data() * conj(*this)).vec;
+        return (*this * static_cast<vector::num_vec>(v) * conj(*this)).vec;
     }
 
     const quaternion quaternion::ONE = {1, 0, 0, 0};
@@ -39,7 +39,7 @@ namespace math {
     }
 
     INLINE num magnitude(const quaternion &q) {
-        return sqrt(sqr_magnitude(q));
+        return inv_sqrt(sqr_magnitude(q));
     }
 
     INLINE quaternion normalized(const quaternion &q) {

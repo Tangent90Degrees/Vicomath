@@ -1,10 +1,11 @@
 #pragma once
 
-#include "src/utils/timer.hpp"
-#include "src/geometry/ray.hpp"
+#include "utils/timer.hpp"
+#include "geometry/ray.hpp"
 
-#include "src/geometry/quaternion.hpp"
-#include "src/linear/dual_linear_base.hpp"
-#include "src/linear/matrix_base.hpp"
+#include "geometry/quaternion.hpp"
+#include "linear/dual_linear_base.hpp"
+#include "linear/matrix_base.hpp"
 
-#include "src/graphic/image.hpp"
+#include "graphic/image.hpp"
+#include "graphic/renderer.hpp"

@@ -1,3 +1,5 @@
+TARGET := main
+
 CC := clang
 CXX := clang++
 CXXFLAGS := -std=c++2b -Wall -fenable-matrix
@@ -6,7 +8,9 @@ SRCS := $(wildcard src/*.cpp) $(wildcard src/*/*.cpp) $(wildcard src/*/*/*.cpp)
 OBJS := $(SRCS:.cpp=.o)
 DEPS := $(OBJS:.o=.d)
 
-all: main.cpp $(OBJS)
+all: $(TARGET)
+
+$(TARGET): $(OBJS)
 	$(CXX) $(CXXFLAGS) -o $@ $^
 
 -include $(DEPS)
@@ -16,4 +20,4 @@ all: main.cpp $(OBJS)
 
 .PHONY: clean
 clean:
-	-rm all $(OBJS) $(DEPS)
+	-rm main $(OBJS) $(DEPS)

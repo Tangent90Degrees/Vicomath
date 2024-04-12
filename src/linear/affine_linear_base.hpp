@@ -25,26 +25,34 @@ namespace math {
         /// @brief Constructs a point using entries.
         template<typename... ARGS>
         inline affine_linear_base(ARGS... args) : tuple{args...} {};
-
-        /// @brief Adds two linear objects by entry-wise addition.
-        friend AFFINE operator+(const affine_linear_base &left, const linear_base &right) {
-            return left.vec + right.vec_data();
-        }
-
-        /// @brief Subtracts two linear objects by entry-wise subtraction.
-        friend AFFINE operator-(const affine_linear_base &left, const linear_base &right) {
-            return left.vec - right.vec_data();
-        }
-
-        /// @brief Adds two linear objects by entry-wise addition.
-        friend AFFINE operator+(const linear_base &left, const affine_linear_base &right) {
-            return left.vec_data() + right.vec;
-        }
-
-        /// @brief Subtracts two linear objects by entry-wise subtraction.
-        friend VEC operator-(const affine_linear_base &left, const affine_linear_base &right) {
-            return left.vec - right.vec;
-        }
     };
+
+    /// @brief Adds two linear objects by entry-wise addition.
+    template<typename AFFINE, typename VEC, size_t DIM>
+    AFFINE operator+(const affine_linear_base<AFFINE, VEC, DIM> &left, const linear_base<VEC, DIM> &right) {
+        return static_cast<affine_linear_base<AFFINE, VEC, DIM>::num_vec>(left)
+               + static_cast<linear_base<VEC, DIM>::num_vec>(right);
+    }
+
+    /// @brief Subtracts two linear objects by entry-wise subtraction.
+    template<typename AFFINE, typename VEC, size_t DIM>
+    AFFINE operator-(const affine_linear_base<AFFINE, VEC, DIM> &left, const linear_base<VEC, DIM> &right) {
+        return static_cast<affine_linear_base<AFFINE, VEC, DIM>::num_vec>(left)
+               - static_cast<linear_base<VEC, DIM>::num_vec>(right);
+    }
+
+    /// @brief Adds two linear objects by entry-wise addition.
+    template<typename AFFINE, typename VEC, size_t DIM>
+    AFFINE operator+(const linear_base<VEC, DIM> &left, const affine_linear_base<AFFINE, VEC, DIM> &right) {
+        return static_cast<linear_base<VEC, DIM>::num_vec>(left)
+               + static_cast<affine_linear_base<AFFINE, VEC, DIM>::num_vec>(right);
+    }
+
+    /// @brief Subtracts two linear objects by entry-wise subtraction.
+    template<typename AFFINE, typename VEC, size_t DIM>
+    VEC operator-(const affine_linear_base<AFFINE, VEC, DIM> &left, const affine_linear_base<AFFINE, VEC, DIM> &right) {
+        return static_cast<affine_linear_base<AFFINE, VEC, DIM>::num_vec>(left)
+               - static_cast<affine_linear_base<AFFINE, VEC, DIM>::num_vec>(right);
+    }
 
 } // namespace math

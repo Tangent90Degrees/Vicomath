@@ -2,10 +2,12 @@
 
 #include "../linear/linear_base.hpp"
 
-namespace math {
+namespace math
+{
 
-    /// @brief The vector type.
-    struct vector : public linear_base<vector, 4> {
+    /// @brief A type that describes coordinates as a 3-dimensional vector.
+    struct vector : public linear_base<vector, 4>
+    {
 
         typedef linear_base::num_vec num_vec;
 
@@ -17,12 +19,15 @@ namespace math {
 
         /// @brief Constructs a vector by x, y, and z vec.
         vector(num x, num y, num z);
-
-        friend INLINE num dot(const vector &left, const vector &right);
-
-        friend INLINE num sqr_magnitude(const vector &v);
-        friend INLINE num magnitude(const vector &v);
-        friend INLINE vector normalized(const vector &v);
     };
+
+    /// @brief Gets the scalar product of two vectors.
+    INLINE num dot(const vector &left, const vector &right);
+
+    INLINE num sqr_magnitude(const vector &v);
+
+    INLINE num magnitude(const vector &v);
+
+    INLINE vector normalized(const vector &v);
 
 } // namespace math

@@ -2,12 +2,15 @@
 
 #include "../utils/core.hpp"
 
-namespace math {
+namespace math
+{
 
     /// @brief The base struct for objects with multiple entries.
     /// @tparam N The number of vec.
-    template<size_t N> requires is_power_of_2<N>
-    struct tuple_base {
+    template <size_t N>
+        requires is_power_of_2<N>
+    struct tuple_base
+    {
 
         /// @brief The builtin vector type.
         typedef num num_vec VEC_TYPE(N);
@@ -20,15 +23,18 @@ namespace math {
 
         /// @brief Constructs a tuple using a compiler builtin vector.
         /// @param entries The compiler builtin vector.
-        inline tuple_base(const num_vec &entries) : vec(entries) {};
+        inline tuple_base(const num_vec &entries) : vec(entries){};
 
         /// @brief Constructs a tuple using a compiler builtin matrix.
         /// @param entries The compiler builtin matrix.
-        inline tuple_base(const num_mat &entries) : mat(entries) {};
+        inline tuple_base(const num_mat &entries) : mat(entries){};
 
         /// @brief Constructs a tuple using vec.
-        template<typename... ARGS>
+        template <typename... ARGS>
         inline tuple_base(ARGS... args) : array{args...} {};
+
+        /// Destructs this tuple.
+        inline virtual ~tuple_base() = default;
 
         /// @brief Accesses an entry at a specified position.
         /// @param off Position of element to access.
@@ -42,11 +48,11 @@ namespace math {
 
         /// @brief Accesses all vec data.
         /// @return The builtin vector type of data.
-        inline const num_vec &vec_data() const noexcept { return vec; }
+        inline explicit operator num_vec() const noexcept { return vec; }
 
         /// @brief Accesses all mat data.
         /// @return The builtin matrix type of data.
-        inline const num_mat &mat_data() const noexcept { return mat; }
+        inline explicit operator num_mat() const noexcept { return mat; }
 
         /// @brief Designates the beginning of the constant controlled sequence.
         [[nodiscard]] inline constexpr const num *begin() const noexcept { return array; }
@@ -61,9 +67,9 @@ namespace math {
         inline constexpr num *end() noexcept { return array + N; }
 
     protected:
-
         /// @brief Data members of this linear object.
-        union {
+        union
+        {
             /// @brief Access the data by a compiler builtin vector for faster operations.
             num_vec vec;
             /// @brief Access the data by a compiler builtin matrix for faster operations.

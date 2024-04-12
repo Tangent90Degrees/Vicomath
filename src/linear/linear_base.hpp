@@ -37,30 +37,38 @@ namespace math {
         template<typename... ARGS>
         inline linear_base(ARGS... args) : tuple{args...} {};
 
-        /// @brief Adds two linear objects by entry-wise addition.
-        friend inline SELF operator+(const linear_base &left, const linear_base &right) {
-            return left.vec + right.vec;
-        }
-
-        /// @brief Subtracts two linear objects by entry-wise subtraction.
-        friend inline SELF operator-(const linear_base &left, const linear_base &right) {
-            return left.vec - right.vec;
-        }
-
-        /// @brief Scalar multiplication.
-        friend inline SELF operator*(const linear_base &left, num right) {
-            return left.vec * right;
-        }
-
-        /// @brief Scalar multiplication.
-        friend inline SELF operator*(num left, const linear_base &right) {
-            return left * right.vec;
-        }
-
-        /// @brief Scalar division.
-        friend inline SELF operator/(const linear_base &left, num right) {
-            return left.vec * (1 / right);
-        }
     };
+
+    /// @brief Adds two linear objects by entry-wise addition.
+    template<typename VEC, size_t DIM>
+    inline VEC operator+(const linear_base<VEC, DIM> &left, const linear_base<VEC, DIM> &right) {
+        return static_cast<linear_base<VEC, DIM>::num_vec>(left)
+               + static_cast<linear_base<VEC, DIM>::num_vec>(right);
+    }
+
+    /// @brief Subtracts two linear objects by entry-wise subtraction.
+    template<typename VEC, size_t DIM>
+    inline VEC operator-(const linear_base<VEC, DIM> &left, const linear_base<VEC, DIM> &right) {
+        return static_cast<linear_base<VEC, DIM>::num_vec>(left)
+               - static_cast<linear_base<VEC, DIM>::num_vec>(right);
+    }
+
+    /// @brief Scalar multiplication.
+    template<typename VEC, size_t DIM>
+    inline VEC operator*(const linear_base<VEC, DIM> &left, num right) {
+        return static_cast<linear_base<VEC, DIM>::num_vec>(left) * right;
+    }
+
+    /// @brief Scalar multiplication.
+    template<typename VEC, size_t DIM>
+    inline VEC operator*(num left, const linear_base<VEC, DIM> &right) {
+        return left * static_cast<linear_base<VEC, DIM>::num_vec>(right);
+    }
+
+    /// @brief Scalar division.
+    template<typename VEC, size_t DIM>
+    inline VEC operator/(const linear_base<VEC, DIM> &left, num right) {
+        return static_cast<linear_base<VEC, DIM>::num_vec>(left) * (ONE / right);
+    }
 
 } // namespace math

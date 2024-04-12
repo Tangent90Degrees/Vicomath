@@ -3,19 +3,21 @@
 #include <tuple>
 #include "../linear/linear_base.hpp"
 
-namespace graphic {
+namespace graphic
+{
 
     using math::num;
 
-    enum color_index {
+    enum color_index
+    {
         A,
         R,
         G,
         B
     };
 
-    struct color : math::linear_base<color, 4> {
-
+    struct color : math::linear_base<color, 4>
+    {
         typedef linear_base::num_vec num_vec;
         typedef std::tuple<int, int, int> bits_24_color;
 
@@ -31,7 +33,6 @@ namespace graphic {
         INLINE color(num r, num g, num b, num a = 1);
 
         friend INLINE bits_24_color bits_24(const color &color);
-
     };
 
     INLINE color::bits_24_color bits_24(const color &color);

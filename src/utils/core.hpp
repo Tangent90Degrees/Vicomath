@@ -4,6 +4,7 @@
 #include <memory>
 #include <cmath>
 #include <optional>
+#include "property.hpp"
 
 /// @brief Forces compiler to make the function inline.
 #define INLINE __attribute__((__always_inline__))
@@ -32,5 +33,8 @@ namespace math
 
     /// @brief Floating-point value of Pi.
     static constexpr const num PI = static_cast<num>(M_PI);
+
+    /// @brief Infinity.
+    static constexpr const num INFTY = std::numeric_limits<num>::infinity();
 
 } // namespace math

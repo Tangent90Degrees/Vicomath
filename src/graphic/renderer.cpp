@@ -20,26 +20,35 @@ void renderer::render(image &output)
     auto viewport_upper_left = cam.position - vector(0, 0, cam.focal_length) - viewport_u / 2 - viewport_v / 2;
     auto pixel00_loc = viewport_upper_left + 0.5 * (pixel_delta_u + pixel_delta_v);
 
+    // Set up scene.
+    // TODO
+
+    scene scene;
+    scene.add_mesh(std::make_shared<sphere>(point(0, 0, -1), 0.5));
+    scene.add_mesh(std::make_shared<sphere>(point(0, -100.5, -1), 100));
+
+
     for (size_t j = 0; j < output.height; j++) {
         for (size_t i = 0; i < output.width; i++) {
             auto pixel_center = pixel00_loc + (i * pixel_delta_u) + (j * pixel_delta_v);
             auto ray_direction = pixel_center - cam.position;
             ray r(cam.position, ray_direction);
-            output.pixel(j, i) = shader(r);
+            output.pixel(j, i) = shader(r, scene);
         }
     }
 }
 
-graphic::color renderer::shader(const ray &ray)
+graphic::color renderer::shader(const ray &ray, const scene &scene)
 {
-    auto t = sphere(point(0, 0, -1), 0.5).hit(ray);
-    if (t)
+    // auto ray_hit = sphere(point(0, 0, -1), 0.5).hit(ray);
+    auto ray_hit = scene.hit(ray);
+    if (ray_hit)
     {
-        vector normal = t->normal;
+        vector normal = ray_hit->normal;
         return 0.5 * (color(normal[X], normal[Y], normal[Z]) + color::WHITE);
     }
     
-    // return {ray.direction[X], ray.direction[Y], ray.direction[Z]};
+    // World sky.
     vector unit_direction = normalized(ray.direction);
     num gradiant_factor = 0.5 * (unit_direction[Y] + 1.0);
     return mix(color::WHITE, {0.5, 0.7, 1.0}, gradiant_factor);

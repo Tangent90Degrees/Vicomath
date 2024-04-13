@@ -2,12 +2,19 @@
 
 #include <vector>
 #include "camera.hpp"
+#include "mesh.hpp"
 
-class scene {
+class scene
+{
 public:
-    scene(const camera *camera);
+    scene();
+    
+    scene(std::initializer_list<std::shared_ptr<mesh>> meshes);
 
-    const camera *camera;
+    void add_mesh(const std::shared_ptr<mesh> &mesh);
+
+    std::optional<hit_info> hit(const math::ray &ray) const;
+
 private:
-    std::vector<scene_object *> objects;
+    std::vector<std::shared_ptr<mesh>> meshes;
 };

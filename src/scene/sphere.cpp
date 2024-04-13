@@ -5,7 +5,7 @@ sphere::sphere(math::point origin, num radius)
 {
 }
 
-std::optional<mesh::hit_info> sphere::hit(const math::ray &ray)
+std::optional<hit_info> sphere::hit(const math::ray &ray)
 {
     auto oc = position - ray.origin;
     auto a = sqr_magnitude(ray.direction);
@@ -29,6 +29,6 @@ std::optional<mesh::hit_info> sphere::hit(const math::ray &ray)
         }
     }
     
-    auto point = ray((h - sqrt(discriminant)) / a);
-    return hit_info(point, normalized(point - position));
+    auto point = ray(root);
+    return hit_info(point, normalized(point - position), root);
 }

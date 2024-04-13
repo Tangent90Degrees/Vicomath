@@ -8,7 +8,6 @@ namespace math
     /// @brief A type that describes coordinates as a 3-dimensional vector.
     struct vector : public linear_base<vector, 4>
     {
-
         typedef linear_base::num_vec num_vec;
 
         /// @brief The default constructor.
@@ -19,6 +18,10 @@ namespace math
 
         /// @brief Constructs a vector by x, y, and z vec.
         vector(num x, num y, num z);
+
+        static const vector ZERO;
+        static const vector FRONT;
+        static const vector BACK;
     };
 
     /// @brief Gets the scalar product of two vectors.

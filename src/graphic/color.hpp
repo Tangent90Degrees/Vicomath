@@ -33,8 +33,18 @@ namespace graphic
         INLINE color(num r, num g, num b, num a = 1);
 
         friend INLINE bits_24_color bits_24(const color &color);
+
+        static const color WHITE;
+        static const color BLACK;
+        static const color RED;
     };
 
     INLINE color::bits_24_color bits_24(const color &color);
 
+    /// @brief Mix two colors linearly.
+    /// @param from The color when the factor is zero.
+    /// @param to The color when the factor is one.
+    /// @param factor The mix factor.
+    /// @return The mixed color.
+    INLINE color mix(const color &from, const color &to, num factor);
 }

@@ -39,7 +39,7 @@ namespace math {
     }
 
     INLINE num magnitude(const quaternion &q) {
-        return inv_sqrt(sqr_magnitude(q));
+        return sqrt(sqr_magnitude(q));
     }
 
     INLINE quaternion normalized(const quaternion &q) {

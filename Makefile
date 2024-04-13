@@ -2,7 +2,7 @@ TARGET := main
 
 CC := clang
 CXX := clang++
-CXXFLAGS := -std=c++2b -Wall -fenable-matrix
+CXXFLAGS := -std=c++2b -Wall -fenable-matrix -g
 
 SRCS := $(wildcard src/*.cpp) $(wildcard src/*/*.cpp) $(wildcard src/*/*/*.cpp)
 OBJS := $(SRCS:.cpp=.o)
@@ -10,7 +10,7 @@ DEPS := $(OBJS:.o=.d)
 
 all: $(TARGET)
 
-$(TARGET): $(OBJS)
+$(TARGET): main.cpp $(OBJS)
 	$(CXX) $(CXXFLAGS) -o $@ $^
 
 -include $(DEPS)

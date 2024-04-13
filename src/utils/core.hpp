@@ -3,6 +3,7 @@
 #include <algorithm>
 #include <memory>
 #include <cmath>
+#include <optional>
 
 /// @brief Forces compiler to make the function inline.
 #define INLINE __attribute__((__always_inline__))
@@ -15,7 +16,7 @@
 
 namespace math
 {
-
+    
     /// @brief Floating-point type represents float or double.
     typedef float num;
 
@@ -31,8 +32,5 @@ namespace math
 
     /// @brief Floating-point value of Pi.
     static constexpr const num PI = static_cast<num>(M_PI);
-
-    /// @brief Fast inverse square root.
-    INLINE num inv_sqrt(num x);
 
 } // namespace math

@@ -9,7 +9,7 @@
 namespace graphic
 {
 
-    /// @brief Image stores its size and pixel data.
+    /// @brief Represents an image with array of pixels.
     class image
     {
     public:
@@ -19,12 +19,6 @@ namespace graphic
 
         INLINE const color &pixel(size_t row, size_t column) const noexcept;
         INLINE color &pixel(size_t row, size_t column) noexcept;
-
-        INLINE void for_each_pixels(const std::function<void(const color &)> &func) const;
-        INLINE void for_each_pixels(const std::function<void(color &)> &func);
-
-        INLINE void for_each_pixels(const std::function<void(const color &, size_t row, size_t column)> &func) const;
-        INLINE void for_each_pixels(const std::function<void(color &, size_t row, size_t column)> &func);
 
         bool save(const std::string &file_name) const;
 

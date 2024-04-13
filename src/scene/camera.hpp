@@ -4,9 +4,11 @@
 #include "../geometry/ray.hpp"
 #include "scene_object.hpp"
 
-class camera : public scene_object {
+class camera : public scene_object
+{
 public:
-    struct viewport_size {
+    struct viewport_size
+    {
         math::num width;
         math::num height;
     };
@@ -18,7 +20,7 @@ public:
 
     math::ray shoot_ray(math::num x, math::num y) const;
 
-private:
+// private:
     math::num focal_length;
     viewport_size viewport_size;
 };

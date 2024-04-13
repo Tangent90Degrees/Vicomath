@@ -27,7 +27,7 @@ namespace math
 
     INLINE num magnitude(const vector &v)
     {
-        return inv_sqrt(sqr_magnitude(v));
+        return sqrt(sqr_magnitude(v));
     }
 
     INLINE vector normalized(const vector &v)

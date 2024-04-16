@@ -14,20 +14,23 @@ namespace math
         readonly_field<num, interval> max;
 
         static const interval UNIVERSE;
+        static const interval EMPTY;
     };
 
-    INLINE bool operator==(const interval& left, const interval& right);
-    INLINE bool operator!=(const interval& left, const interval& right);
+    INLINE bool operator==(const interval &left, const interval &right);
+    INLINE bool operator!=(const interval &left, const interval &right);
 
-    /// @brief 
-    /// @param left 
-    /// @param right 
+    /// @brief
+    /// @param left
+    /// @param right
     /// @return The union of the two intervals.
-    INLINE interval operator+(const interval& left, const interval& right);
+    INLINE interval operator+(const interval &left, const interval &right);
 
-    /// @brief 
-    /// @param left 
-    /// @param right 
+    /// @brief
+    /// @param left
+    /// @param right
     /// @return The intersection of the two intervals.
-    INLINE interval operator*(const interval& left, const interval& right);
+    INLINE interval operator*(const interval &left, const interval &right);
+
+    INLINE num clamp(num value, const interval &range);
 }

@@ -37,6 +37,10 @@ namespace math {
         template<typename... ARGS>
         inline linear_base(ARGS... args) : tuple{args...} {};
 
+        // inline SELF &operator+=(const linear_base &other)
+        // {
+        //     return this->vec += other.vec;
+        // }
     };
 
     /// @brief Adds two linear objects by entry-wise addition.

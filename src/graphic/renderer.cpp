@@ -1,4 +1,5 @@
 #include "renderer.hpp"
+#include "../utils/random.hpp"
 
 using namespace math;
 using namespace graphic;
@@ -8,32 +9,28 @@ void renderer::render(image &output)
     // Set up the camera.
     camera cam(point::ZERO, quaternion::ONE, 1.0, {16 * 2.0 / 9, 2.0});
 
-    // Calculate the vectors across the horizontal and down the vertical viewport edges.
-    vector viewport_u(cam.viewport_size.width, 0, 0);
-    vector viewport_v(0, -cam.viewport_size.height, 0);
-
-    // Calculate the horizontal and vertical delta vectors from pixel to pixel.
-    auto pixel_delta_u = viewport_u / output.width;
-    auto pixel_delta_v = viewport_v / output.height;
-
-    // Calculate the location of the upper left pixel.
-    auto viewport_upper_left = cam.position - vector(0, 0, cam.focal_length) - viewport_u / 2 - viewport_v / 2;
-    auto pixel00_loc = viewport_upper_left + 0.5 * (pixel_delta_u + pixel_delta_v);
+    num pixel_size = cam.viewport_size.width / output.width;
 
     // Set up scene.
-    // TODO
-
     scene scene;
     scene.add_mesh(std::make_shared<sphere>(point(0, 0, -1), 0.5));
     scene.add_mesh(std::make_shared<sphere>(point(0, -100.5, -1), 100));
 
-
     for (size_t j = 0; j < output.height; j++) {
         for (size_t i = 0; i < output.width; i++) {
-            auto pixel_center = pixel00_loc + (i * pixel_delta_u) + (j * pixel_delta_v);
-            auto ray_direction = pixel_center - cam.position;
-            ray r(cam.position, ray_direction);
-            output.pixel(j, i) = shader(r, scene);
+            // auto pixel_center = pixel00_loc + (i * pixel_delta_u) + (j * pixel_delta_v);
+            // auto ray_direction = pixel_center - cam.position;
+            // ray r(cam.position, ray_direction);
+            ray r = cam.shoot_ray((i + 0.5) / output.width - 0.5, 0.5 - (j + 0.5) / output.height);
+            // output.pixel(j, i) = shader(r, scene);
+
+            color pixel_color_sum = color::BLACK;
+            for (size_t sample_times = 0; sample_times < samples_per_pixel; sample_times++)
+            {
+                ray random_ray = {r.origin, r.direction + pixel_size * vector(random::uniform_real(-0.5, 0.5), random::uniform_real(-0.5, 0.5), 0)};
+                pixel_color_sum = pixel_color_sum + shader(random_ray, scene);
+            }
+            output.pixel(j, i) = pixel_color_sum / samples_per_pixel;
         }
     }
 }

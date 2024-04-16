@@ -13,6 +13,7 @@ namespace math
     }
 
     const interval interval::UNIVERSE = interval(-INFTY, INFTY);
+    const interval interval::EMPTY = interval(INFTY, -INFTY);
 
     bool operator==(const interval &left, const interval &right)
     {
@@ -32,6 +33,11 @@ namespace math
     interval operator*(const interval &left, const interval &right)
     {
         return interval(std::max(left.min, right.min), std::min(left.max, right.max));
+    }
+
+    num clamp(num value, const interval &range)
+    {
+        return std::clamp<num>(value, range.min, range.max);
     }
 
 } // namespace math

@@ -12,4 +12,5 @@ public:
 
 private:
     // const scene *scene;
+    size_t samples_per_pixel = 10;
 };

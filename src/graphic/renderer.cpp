@@ -41,8 +41,11 @@ graphic::color renderer::shader(const ray &ray, const scene &scene)
     auto ray_hit = scene.hit(ray);
     if (ray_hit)
     {
-        vector normal = ray_hit->normal;
-        return 0.5 * (color(normal[X], normal[Y], normal[Z]) + color::WHITE);
+        // vector normal = ray_hit->normal;
+        // return normal;
+        auto direction = vector::random_on_hemisphere(ray_hit->normal) + vector::random_on_shell(1);
+        return 0.5 * shader(math::ray(ray_hit->point, direction), scene);
+        // return direction;
     }
     
     // World sky.

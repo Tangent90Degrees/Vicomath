@@ -22,6 +22,11 @@ namespace math
         static const vector ZERO;
         static const vector FRONT;
         static const vector BACK;
+
+        static vector random(num min, num max);
+        static vector random_in_sphere(num radius);
+        static vector random_on_shell(num radius);
+        static vector random_on_hemisphere(const vector &normal);
     };
 
     /// @brief Gets the scalar product of two vectors.

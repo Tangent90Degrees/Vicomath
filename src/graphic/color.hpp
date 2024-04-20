@@ -2,10 +2,10 @@
 
 #include <tuple>
 #include "../linear/linear_base.hpp"
+#include "../geometry/vector.hpp"
 
 namespace graphic
 {
-
     using math::num;
 
     enum color_index
@@ -31,6 +31,8 @@ namespace graphic
 
         /// @brief Constructs a vector by x, y, and z vec.
         INLINE color(num r, num g, num b, num a = 1);
+
+        INLINE color(const math::vector &normal);
 
         friend INLINE bits_24_color bits_24(const color &color);
 

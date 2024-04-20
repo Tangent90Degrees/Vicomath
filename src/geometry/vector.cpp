@@ -1,4 +1,5 @@
 #include "vector.hpp"
+#include "../utils/random.hpp"
 
 namespace math
 {
@@ -13,6 +14,34 @@ namespace math
     vector::vector(num x, num y, num z)
         : linear_base(static_cast<num>(0), x, y, z)
     {
+    }
+
+    vector vector::random(num min, num max)
+    {
+        return vector(random::uniform_real(min, max), random::uniform_real(min, max), random::uniform_real(min, max));
+    }
+
+    vector vector::random_in_sphere(num radius)
+    {
+        while (true)
+        {
+            auto p = random(-radius, radius);
+            if (magnitude(p) < radius * radius)
+            {
+                return p;
+            }
+        }
+    }
+
+    vector vector::random_on_shell(num radius)
+    {
+        return normalized(random_in_sphere(radius));
+    }
+
+    vector vector::random_on_hemisphere(const vector &normal)
+    {
+        auto on_unit_sphere = random_on_shell(1);
+        return dot(on_unit_sphere, normal) < 0 ? -on_unit_sphere : on_unit_sphere;
     }
 
     INLINE num dot(const vector &left, const vector &right)

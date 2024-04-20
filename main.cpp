@@ -6,7 +6,7 @@ using namespace graphic;
 int main()
 {
     renderer renderer;
-    image image{1920, 1080};
+    image image{1280, 720};
     std::cout << "Image has been created successfully." << std::endl;
 
     renderer.render(image);

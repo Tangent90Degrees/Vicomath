@@ -18,7 +18,7 @@ std::optional<hit_info> scene::hit(const math::ray &ray) const
     for (auto &&mesh : meshes)
     {
         auto hit = mesh->hit(ray);
-        if (hit && (!closest_hit || hit->time < closest_hit->time))
+        if (hit && hit->time > 0.0001 && (!closest_hit || hit->time < closest_hit->time))
         {
             closest_hit = hit;
         }

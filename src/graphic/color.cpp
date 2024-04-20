@@ -13,6 +13,11 @@ namespace graphic
     {
     }
 
+    color::color(const math::vector &normal)
+        : linear_base((static_cast<num_vec>(normal) + static_cast<num_vec>(WHITE)) / 2)
+    {
+    }
+
     color::bits_24_color bits_24(const color &color)
     {
         return {color::bits_24_channel * color[R],
